@@ -13,6 +13,8 @@ This project **statically links** to **raylib 5.0**, which was built externally 
 - `libraylib.a` - The main raylib static library
 - `libglfw3.a` - GLFW static library (raylib dependency)
 
+**Note:** The included static library files (`.a` files) in this repository were built on **Ubuntu 24.04** on an **x86** machine. These pre-built libraries are included for convenience, but you may need to rebuild them if you're using a different platform or architecture.
+
 The build system uses `dune-configurator` to automatically detect and link these static libraries during compilation.
 
 ## Features
@@ -56,11 +58,11 @@ This installs:
 
 ### 3. Ensure static libraries are present
 
-Make sure the `static_raylib/` directory contains:
-- `libraylib.a`
-- `libglfw3.a`
+The `static_raylib/` directory already contains pre-built static libraries:
+- `libraylib.a` - Built on Ubuntu 24.04 (x86)
+- `libglfw3.a` - Built on Ubuntu 24.04 (x86)
 
-These should be built from raylib 5.0 source code using a C++ compiler.
+**Note:** If you're not on Ubuntu 24.04 x86, you may need to rebuild these libraries (see "Building Raylib 5.0" section below).
 
 ### 4. Build the project
 
@@ -105,6 +107,8 @@ The application will open a window displaying "Hello from OCaml and Raylib!" wit
 3. **Runtime**: The application uses the OCaml raylib bindings to interact with the statically linked raylib library.
 
 ## Building Raylib 5.0
+
+The included static libraries in `static_raylib/` were built on **Ubuntu 24.04** on an **x86** machine. If you need to rebuild them for a different platform or architecture, follow these steps:
 
 To build raylib 5.0 as a static library for this project:
 
