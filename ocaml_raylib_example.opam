@@ -1,0 +1,36 @@
+opam-version: "2.0"
+name: "ocaml_raylib_example"
+version: "0.1.0"
+maintainer: "your-name@example.com"
+authors: ["Your Name"]
+license: "MIT"
+depends: [
+  "ocaml" { = "5.4.0"}
+  "dune" { = "3.20.2"}
+  "dune-configurator" { = "3.20.2"}
+  "raylib" { = "1.5.1"}
+  "ctypes" { = "0.24.0"}
+  "integers" { = "0.7.0"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/yourusername/ocaml_raylib_example.git"
+synopsis: "OCaml example using raylib with local static library"
+description: """
+An OCaml project demonstrating raylib integration with a locally built
+static raylib library. The project uses dune-configurator to automatically
+detect library paths.
+"""
+

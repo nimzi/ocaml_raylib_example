@@ -1,0 +1,27 @@
+(rule
+ (targets c_library_flags.sexp)
+ (deps
+  (source_tree static_raylib)
+  config/discover.exe)
+ (action
+  (run config/discover.exe)))
+
+(executable
+ (name main)
+ (public_name ocaml_raylib_example)
+ (libraries raylib)
+ (flags :standard
+  (:include c_library_flags.sexp)
+  -cclib -lraylib
+  -cclib -lglfw3
+  -cclib -lm
+  -cclib -lpthread
+  -cclib -lX11
+  -cclib -lXrandr
+  -cclib -lXinerama
+  -cclib -lXi
+  -cclib -lXxf86vm
+  -cclib -lXcursor
+  -cclib -ldl
+  -cclib -lGL))
+

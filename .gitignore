@@ -1,0 +1,37 @@
+# Dune build artifacts
+_build/
+*.install
+
+# OPAM
+_opam/
+*.opam.locked
+
+# OCaml
+*.cmo
+*.cmi
+*.cmx
+*.cmxa
+*.cma
+*.a
+*.so
+*.exe
+*.byte
+*.native
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Old raylib directory (we only need static_raylib)
+raylib/
+
+# Environment files
+env.sh
+
