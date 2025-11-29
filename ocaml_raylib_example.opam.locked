@@ -1,0 +1,53 @@
+opam-version: "2.0"
+name: "ocaml_raylib_example"
+version: "0.1.0"
+synopsis: "OCaml example using raylib with local static library"
+description: """\
+An OCaml project demonstrating raylib integration with a locally built
+static raylib library. The project uses dune-configurator to automatically
+detect library paths."""
+maintainer: "your-name@example.com"
+authors: "Your Name"
+license: "MIT"
+depends: [
+  "base-bigarray" {= "base"}
+  "base-domains" {= "base"}
+  "base-effects" {= "base"}
+  "base-nnp" {= "base"}
+  "base-threads" {= "base"}
+  "base-unix" {= "base"}
+  "conf-libxcursor" {= "1"}
+  "conf-libxi" {= "1"}
+  "conf-libxinerama" {= "1"}
+  "conf-libxrandr" {= "1"}
+  "conf-mesa" {= "1"}
+  "conf-pkg-config" {= "4"}
+  "csexp" {= "1.5.2"}
+  "ctypes" {= "0.24.0"}
+  "dune" {= "3.20.2"}
+  "dune-configurator" {= "3.20.2"}
+  "integers" {= "0.7.0"}
+  "ocaml" {= "5.4.0"}
+  "ocaml-base-compiler" {= "5.4.0"}
+  "ocaml-compiler" {= "5.4.0"}
+  "ocaml-config" {= "3"}
+  "ocaml-options-vanilla" {= "1"}
+  "patch" {= "3.1.0"}
+  "raylib" {= "1.5.1"}
+  "stdlib-shims" {= "0.3.0"}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/yourusername/ocaml_raylib_example.git"

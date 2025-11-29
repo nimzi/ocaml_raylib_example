@@ -4,7 +4,8 @@ _build/
 
 # OPAM
 _opam/
-*.opam.locked
+# Allow the project's lock file for reproducible builds
+!*.opam.locked
 
 # OCaml
 *.cmo
@@ -29,10 +30,4 @@ _opam/
 # OS files
 .DS_Store
 Thumbs.db
-
-# Old raylib directory (we only need static_raylib)
-raylib/
-
-# Environment files
-env.sh
 
